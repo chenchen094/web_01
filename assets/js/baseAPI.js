@@ -21,3 +21,20 @@ $.ajaxPrefilter(function (options) {
             }
         }
 })
+
+//初始化用户的基本信息
+initUserInfo()
+function initUserInfo(){
+
+    $.ajax({
+        type:'get',
+        url:'/my/userinfo',
+        success:function(res){
+            if(res.status !==0){
+                return layer.msg('获取用户信息失败')
+            }
+            // console.log(res);
+            
+        }
+    })
+}
